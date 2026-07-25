@@ -107,8 +107,8 @@ Das Netzwerk läuft hinter einem **Double NAT**, weshalb keine klassischen Portf
 Das Home Lab wird schrittweise nach einem klaren Plan aufgebaut:
 
 - [x] **Proxmox VE & Storage Tiering** (Grundinfrastruktur eingerichtet)
-- [x] **Windows Server 2025 & Win11 VM** (VMs installiert & VLAN 21 zugewiesen)
 - [ ] ⏳ **Aktueller Schritt: Pi-hole (DNS & Werbeblocker)** (LXC Konfiguration)
+- [ ] **Windows Server 2025 & Win11 VM** (VLAN 21 Setup)
 - [ ] **Nginx Proxy Manager** (Reverse Proxy & SSL Zertifikate)
 - [ ] **Tailscale Subnet Router** (Sicherer Fernzugriff)
 - [ ] **Windows Active Directory & IGDLA** (Domänen-Einrichtung & Rechtestruktur)

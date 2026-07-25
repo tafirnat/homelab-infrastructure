@@ -107,8 +107,8 @@ The network operates behind a **Double NAT**, so traditional port forwarding is 
 The Home Lab is being built step by step according to a clear deployment plan:
 
 - [x] **Proxmox VE & Storage Tiering** (Infrastructure setup completed)
-- [x] **Windows Server 2025 & Win11 VM** (VMs installed & assigned to VLAN 21)
 - [ ] ⏳ **Current Step: Pi-hole (DNS & Adblocker)** (LXC Configuration)
+- [ ] **Windows Server 2025 & Win11 VM** (VLAN 21 Setup)
 - [ ] **Nginx Proxy Manager** (Reverse Proxy & SSL Certificates)
 - [ ] **Tailscale Subnet Router** (Secure Remote Access)
 - [ ] **Windows Active Directory & IGDLA** (Domain Controller & Permission Setup)
