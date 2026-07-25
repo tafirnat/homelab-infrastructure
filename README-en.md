@@ -99,7 +99,7 @@ The network operates behind a **Double NAT**, so traditional port forwarding is 
 - **LXC vs. Docker (Combination):** Core infrastructure services (like Tailscale, Pi-hole) run in standalone LXC containers for stability. Additional application services run in Docker inside an LXC.
 - **Tailscale Remote Access:** The VPN access is installed in a separate LXC. This ensures remote network access remains reliable even when testing other services.
 - **Windows Server Concept (Planned):** In the Windows Lab (VLAN 21), access permissions will follow the FISI standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) once domain configuration begins.
-- **Local AI & GPU Passthrough:** The language model (Qwen 2.5 7B) runs in an unprivileged LXC with hardware acceleration via AMD Radeon 780M iGPU (`/dev/dri`).
+- **Local AI & GPU Passthrough (Planned):** By passing through the graphics card directly (iGPU Passthrough on Proxmox), an open-source language model (currently Qwen 2.5 7B) is planned to run in a standalone LXC container with optimal performance and efficiency.
 - **Website AI Integration:** Connecting the local model via **Cloudflare Tunnel & Turnstile** — allowing secure AI responses on my website without opening ports on the router.
 - **DNS Standard:** **`.mylab`** is used as the local Top-Level Domain.
 
