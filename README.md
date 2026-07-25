@@ -95,6 +95,7 @@ Das Netzwerk läuft hinter einem **Double NAT**, weshalb keine klassischen Portf
 
 ## 🧠 Praktische Entschlüsse & Ansätze
 
+- **Bare-Metal-Hypervisor (Typ-1):** Proxmox VE ist als dedizierter Typ-1-Hypervisor direkt auf dem Mini-PC (Bare-Metal) installiert. Der Host dient als sauberes Fundament ausschließlich zur Verwaltung virtueller Ressourcen — Anwendungen werden nie direkt auf dem Proxmox-Host installiert.
 - **LXC vs. Docker (Kombination):** Infrastrukturdienste (wie Tailscale, Pi-hole) laufen als eigene LXC-Kontainer für gute Stabilität. Weitere Anwendungen laufen in Docker innerhalb eines LXC.
 - **Tailscale Fernzugriff:** Der VPN-Zugang ist in einem eigenen LXC installiert. So bleibt der Zugriff auf das Netzwerk auch dann erhalten, wenn andere Dienste getestet werden.
 - **Windows Server Konzept (Geplant):** Im Windows Lab (VLAN 21) sollen Berechtigungen nach dem FISI-Standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) konfiguriert werden, sobald die AD-Einrichtung erfolgt.
