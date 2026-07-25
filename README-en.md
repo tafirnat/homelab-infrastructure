@@ -19,22 +19,26 @@ The primary goal of this repository is to simulate a complete, secure, and segme
 <div align="center">
   <table border="0">
     <tr>
-      <td align="center" colspan="3" style="padding: 10px;">
+      <td align="center" colspan="4" style="padding: 10px;">
         <img src="images/real-hardware-setup.jpg" width="480" alt="Home Lab Physical Hardware Stack"><br/>
-        <sub><b>📷 Real-World Hardware Setup:</b> MikroTik RB5009, Geekom A8 (Proxmox Node), TP-Link Omada Switch & EAP610 AP</sub>
+        <sub><b>📷 Real-World Hardware Setup:</b> Geekom A8 (Proxmox Node), MikroTik RB5009, TP-Link Omada Switch & EAP610 AP</sub>
       </td>
     </tr>
     <tr>
-      <td align="center" width="33%" style="padding: 10px;">
-        <img src="images/mikrotik-rb5009.png" width="220" alt="MikroTik RB5009"><br/>
-        <sub><b>MikroTik RB5009UG+S+IN</b><br/>Core Router & Inter-VLAN Firewall</sub>
+      <td align="center" width="25%" style="padding: 8px;">
+        <img src="images/geekom-a8.png" width="160" alt="Geekom A8 Mini PC"><br/>
+        <sub><b>Geekom A8 Mini PC</b><br/>Proxmox VE Hypervisor Node (32GB DDR5)</sub>
       </td>
-      <td align="center" width="33%" style="padding: 10px;">
-        <img src="images/tplink-sg2008p.png" width="220" alt="TP-Link SG2008P"><br/>
+      <td align="center" width="25%" style="padding: 8px;">
+        <img src="images/mikrotik-rb5009.png" width="180" alt="MikroTik RB5009"><br/>
+        <sub><b>MikroTik RB5009</b><br/>Core Router & Inter-VLAN Firewall</sub>
+      </td>
+      <td align="center" width="25%" style="padding: 8px;">
+        <img src="images/tplink-sg2008p.png" width="180" alt="TP-Link SG2008P"><br/>
         <sub><b>TP-Link SG2008P</b><br/>L2+ Managed PoE+ Switch</sub>
       </td>
-      <td align="center" width="33%" style="padding: 10px;">
-        <img src="images/tplink-eap610.png" width="160" alt="TP-Link EAP610"><br/>
+      <td align="center" width="25%" style="padding: 8px;">
+        <img src="images/tplink-eap610.png" width="140" alt="TP-Link EAP610"><br/>
         <sub><b>TP-Link EAP610</b><br/>Wi-Fi 6 Access Point</sub>
       </td>
     </tr>
