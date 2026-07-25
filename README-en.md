@@ -14,6 +14,33 @@ The primary goal of this repository is to simulate a complete, secure, and segme
   - TP-Link SG2008P (L2+ Managed PoE+ Switch)
   - TP-Link EAP610 (Wi-Fi 6 Access Point with Multi-SSID)
 
+### 📷 Hardware Setup Gallery
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" colspan="3" style="padding: 10px;">
+        <img src="images/real-hardware-setup.jpg" width="480" alt="Home Lab Physical Hardware Stack"><br/>
+        <sub><b>📷 Real-World Hardware Setup:</b> MikroTik RB5009, Geekom A8 (Proxmox Node), TP-Link Omada Switch & EAP610 AP</sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="33%" style="padding: 10px;">
+        <img src="images/mikrotik-rb5009.png" width="220" alt="MikroTik RB5009"><br/>
+        <sub><b>MikroTik RB5009UG+S+IN</b><br/>Core Router & Inter-VLAN Firewall</sub>
+      </td>
+      <td align="center" width="33%" style="padding: 10px;">
+        <img src="images/tplink-sg2008p.png" width="220" alt="TP-Link SG2008P"><br/>
+        <sub><b>TP-Link SG2008P</b><br/>L2+ Managed PoE+ Switch</sub>
+      </td>
+      <td align="center" width="33%" style="padding: 10px;">
+        <img src="images/tplink-eap610.png" width="160" alt="TP-Link EAP610"><br/>
+        <sub><b>TP-Link EAP610</b><br/>Wi-Fi 6 Access Point</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ### 💾 Storage Strategy (3-Tiering)
 To optimize performance and resource allocation, storage is segmented into three tiers:
 - **Tier 1 (Hot - `local-lvm`):** 1 TB NVMe M.2 SSD (For Proxmox OS and active VM/LXC root disks)
