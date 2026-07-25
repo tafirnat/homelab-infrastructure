@@ -1,10 +1,10 @@
 # 🏠 Personal Home Lab — System Architecture
 
-This is my personal Home Lab environment, built out of pure passion for IT infrastructure and systems engineering. While pursuing my Fachinformatiker für Systemintegration (FISI) apprenticeship in Germany, I created this enterprise-grade simulation to gain hands-on experience with virtualization, networking, and security concepts that go beyond pure theory.
+This is my personal Home Lab environment, built out of pure passion for IT infrastructure and systems engineering. While pursuing my Fachinformatiker für Systemintegration (FISI) apprenticeship in Germany, I created this sandbox environment to discover new technologies and gain hands-on experience with virtualization, networking, and security concepts that go beyond pure theory.
 
-## 🎯 Project Goal
+## 🎯 Project Goal & Motivation
 
-The primary goal of this repository is to simulate a complete, secure, and segmented enterprise environment. All decisions are based on Enterprise Best Practices, including network separation (VLANs), storage tiering, German permission standards (IGDLA), and secure remote access strategies.
+The main goal of this repository is to gain hands-on experience in network and systems administration while exploring modern technologies first-hand. Rather than relying on pure theory, this Home Lab serves as a personal sandbox to explore and deeply understand real-world concepts — such as VLAN segmentation, 3-tier storage, and structured access control (e.g., IGDLA) — in a compact setup.
 
 ## 🏗️ Hardware & Virtualization
 

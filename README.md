@@ -1,10 +1,10 @@
 # 🏠 Personal Home Lab — System Architecture
 
-Dies ist meine persönliche Home-Lab-Umgebung, die aus purer Leidenschaft für IT-Infrastruktur und Systemtechnik entstanden ist. Parallel zu meiner Ausbildung zum Fachinformatiker für Systemintegration (FISI) habe ich diese Enterprise-Simulation aufgebaut, um echte, praktische Erfahrungen (Hands-on) mit Virtualisierung, Netzwerktechnik und IT-Sicherheit zu sammeln, die über die Theorie hinausgehen.
+Dies ist meine persönliche Home-Lab-Umgebung, die aus purer Leidenschaft für IT-Infrastruktur und Systemtechnik entstanden ist. Parallel zu meiner Ausbildung zum Fachinformatiker für Systemintegration (FISI) habe ich diese Testumgebung aufgebaut, um neue Technologien zu entdecken und praktische Erfahrungen (Hands-on) mit Virtualisierung, Netzwerktechnik und IT-Sicherheit zu sammeln.
 
-## 🎯 Projektziel
+## 🎯 Projektziel & Motivation
 
-Das primäre Ziel dieses Repositories ist die Simulation einer vollständigen, sicheren und segmentierten Unternehmensumgebung. Alle Entscheidungen basieren auf Enterprise Best Practices, einschließlich Netzwerktrennung (VLANs), Storage-Tiering, deutscher Berechtigungsstandards (IGDLA) und sicheren Remote-Zugriffsstrategien.
+Das Hauptziel dieses Repositories ist es, praktische Erfahrungen im Bereich der Netzwerk- und Systemadministration zu sammeln und moderne Technologien hautnah zu entdecken. Anstatt auf reiner Theorie aufzubauen, dient dieses Home Lab als persönliches Testfeld, um praxisnahe Konzepte — wie VLAN-Segmentierung, 3-Tier Storage und strukturierte Rechtevergabe (z. B. IGDLA) — in einer kompakten Umgebung auszuprobieren und tiefgehend zu verstehen.
 
 ## 🏗️ Hardware & Virtualisierung
 
