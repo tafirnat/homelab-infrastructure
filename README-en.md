@@ -1,4 +1,4 @@
-# 🏠 Enterprise Home Lab Infrastructure
+# 🏠 Personal Home Lab — System Architecture
 
 This is my personal Home Lab environment, built out of pure passion for IT infrastructure and systems engineering. While pursuing my Fachinformatiker für Systemintegration (FISI) apprenticeship in Germany, I created this enterprise-grade simulation to gain hands-on experience with virtualization, networking, and security concepts that go beyond pure theory.
 

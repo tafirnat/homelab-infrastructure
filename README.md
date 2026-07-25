@@ -1,4 +1,4 @@
-# 🏠 Enterprise Home Lab Infrastructure
+# 🏠 Personal Home Lab — System Architecture
 
 Dies ist meine persönliche Home-Lab-Umgebung, die aus purer Leidenschaft für IT-Infrastruktur und Systemtechnik entstanden ist. Parallel zu meiner Ausbildung zum Fachinformatiker für Systemintegration (FISI) habe ich diese Enterprise-Simulation aufgebaut, um echte, praktische Erfahrungen (Hands-on) mit Virtualisierung, Netzwerktechnik und IT-Sicherheit zu sammeln, die über die Theorie hinausgehen.
 
