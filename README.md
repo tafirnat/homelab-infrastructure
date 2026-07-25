@@ -59,7 +59,7 @@ Um die Leistung zu optimieren und Ressourcen sinnvoll einzuteilen, ist der Speic
         <sub><b>Samsung 990 EVO Plus 1 TB NVMe SSD</b><br/>Tier 2 Warm Storage (VM Backups, Docker Volumes)</sub>
       </td>
       <td align="center" width="50%" style="padding: 10px;">
-        <img src="images/nvme-enclosure-10gbps.png" width="190" alt="10Gbps USB-C NVMe Enclosure"><br/>
+        <img src="images/nvme-enclosure-10gbps.png" width="190" alt="10Gbps USB-C NVMe Gehäuse"><br/>
         <sub><b>USB-C 10 Gbps NVMe Gehäuse</b><br/>Externe Anbindung für Tier 2 Storage</sub>
       </td>
     </tr>
@@ -97,24 +97,25 @@ Das Netzwerk läuft hinter einem **Double NAT**, weshalb keine klassischen Portf
 
 - **LXC vs. Docker (Kombination):** Infrastrukturdienste (wie Tailscale, Pi-hole) laufen als eigene LXC-Kontainer für gute Stabilität. Weitere Anwendungen laufen in Docker innerhalb eines LXC.
 - **Tailscale Fernzugriff:** Der VPN-Zugang ist in einem eigenen LXC installiert. So bleibt der Zugriff auf das Netzwerk auch dann erhalten, wenn andere Dienste getestet werden.
-- **Windows Server Rechtestruktur:** Im Windows Lab (VLAN 21) werden Berechtigungen nach dem FISI-Standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) strukturiert.
+- **Windows Server Konzept (Geplant):** Im Windows Lab (VLAN 21) sollen Berechtigungen nach dem FISI-Standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) konfiguriert werden, sobald die AD-Einrichtung erfolgt.
 - **Lokale KI & GPU-Passthrough:** Das Sprachmodell (Qwen 2.5 7B) läuft in einem LXC mit Hardware-Unterstützung durch die AMD Radeon 780M iGPU (`/dev/dri`).
 - **Webseiten-KI Entegrasyonu:** Einbindung des lokalen Modells über **Cloudflare Tunnel & Turnstile** — ermöglicht sichere KI-Antworten auf meiner Webseite, ohne Ports am Router zu öffnen.
 - **DNS-Standard:** Es wird **`.mylab`** als lokale Top-Level-Domain genutzt.
 
-## 🗺️ Roadmap & Geplante Schritte
+## 🗺️ Roadmap & Schritt-für-Schritt Verlauf
 
-Diese Lernumgebung wird nach und nach ausgebaut. Aktueller Stand:
+Das Home Lab wird schrittweise nach einem klaren Plan aufgebaut:
 
-- [x] **Proxmox Hypervisor & Storage Tiering** (Eingerichtet)
-- [x] **Windows Server 2025 DC & Windows 11 Client** (Eingerichtet, VLAN 21)
-- [ ] **Pi-hole (DNS & Werbeblocker)** (Geplant - Schritt 1)
-- [ ] **Nginx Proxy Manager (Reverse Proxy & SSL)** (Geplant - Schritt 2)
-- [ ] **Tailscale Subnet Router (VPN-Zugang)** (Geplant - Schritt 3)
-- [ ] **OmniRoute AI Gateway (Model Routing)** (Geplant - Schritt 4)
-- [ ] **Uptime Kuma & Statusübersicht** (Geplant)
-- [ ] **Vaultwarden & Automatisches Backup** (Geplant)
-- [ ] **Kali Linux Pentesting Lab** (Geplant, VLAN 99)
+- [x] **Proxmox VE & Storage Tiering** (Grundinfrastruktur eingerichtet)
+- [x] **Windows Server 2025 & Win11 VM** (VMs installiert & VLAN 21 zugewiesen)
+- [ ] ⏳ **Aktueller Schritt: Pi-hole (DNS & Werbeblocker)** (LXC Konfiguration)
+- [ ] **Nginx Proxy Manager** (Reverse Proxy & SSL Zertifikate)
+- [ ] **Tailscale Subnet Router** (Sicherer Fernzugriff)
+- [ ] **Windows Active Directory & IGDLA** (Domänen-Einrichtung & Rechtestruktur)
+- [ ] **OmniRoute AI Gateway** (Model-Routing)
+- [ ] **Uptime Kuma & Statusübersicht**
+- [ ] **Vaultwarden & Automatisches Backup**
+- [ ] **Kali Linux Pentesting Lab** (VLAN 99)
 
 ---
-*Dieser Bereich wird aktualisiert, wenn neue Dienste eingerichtet werden.*
+*Dieser Bereich wird fortlaufend aktualisiert, sobald ein Schritt abgeschlossen ist.*

@@ -97,24 +97,25 @@ The network operates behind a **Double NAT**, so traditional port forwarding is 
 
 - **LXC vs. Docker (Combination):** Core infrastructure services (like Tailscale, Pi-hole) run in standalone LXC containers for stability. Additional application services run in Docker inside an LXC.
 - **Tailscale Remote Access:** The VPN access is installed in a separate LXC. This ensures remote network access remains reliable even when testing other services.
-- **Windows Server Access Structure:** In the Windows Lab (VLAN 21), access permissions follow the FISI standard **IGDLA** (Identities, Global groups, Domain Local groups, Access).
+- **Windows Server Concept (Planned):** In the Windows Lab (VLAN 21), access permissions will follow the FISI standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) once domain configuration begins.
 - **Local AI & GPU Passthrough:** The language model (Qwen 2.5 7B) runs in an unprivileged LXC with hardware acceleration via AMD Radeon 780M iGPU (`/dev/dri`).
 - **Website AI Integration:** Connecting the local model via **Cloudflare Tunnel & Turnstile** — allowing secure AI responses on my website without opening ports on the router.
 - **DNS Standard:** **`.mylab`** is used as the local Top-Level Domain.
 
-## 🗺️ Roadmap & Next Steps
+## 🗺️ Roadmap & Sequential Progress
 
-This learning environment is built step by step. Current status:
+The Home Lab is being built step by step according to a clear deployment plan:
 
-- [x] **Proxmox Hypervisor & Storage Tiering** (Configured)
-- [x] **Windows Server 2025 DC & Windows 11 Client** (Configured, VLAN 21)
-- [ ] **Pi-hole (DNS & Adblocker)** (Planned - Step 1)
-- [ ] **Nginx Proxy Manager (Reverse Proxy & SSL)** (Planned - Step 2)
-- [ ] **Tailscale Subnet Router (VPN Access)** (Planned - Step 3)
-- [ ] **OmniRoute AI Gateway (Model Routing)** (Planned - Step 4)
-- [ ] **Uptime Kuma & Status Overview** (Planned)
-- [ ] **Vaultwarden & Automated Backup** (Planned)
-- [ ] **Kali Linux Pentesting Lab** (Planned, VLAN 99)
+- [x] **Proxmox VE & Storage Tiering** (Infrastructure setup completed)
+- [x] **Windows Server 2025 & Win11 VM** (VMs installed & assigned to VLAN 21)
+- [ ] ⏳ **Current Step: Pi-hole (DNS & Adblocker)** (LXC Configuration)
+- [ ] **Nginx Proxy Manager** (Reverse Proxy & SSL Certificates)
+- [ ] **Tailscale Subnet Router** (Secure Remote Access)
+- [ ] **Windows Active Directory & IGDLA** (Domain Controller & Permission Setup)
+- [ ] **OmniRoute AI Gateway** (Model Routing)
+- [ ] **Uptime Kuma & Status Overview**
+- [ ] **Vaultwarden & Automated Backup**
+- [ ] **Kali Linux Pentesting Lab** (VLAN 99)
 
 ---
-*This section is updated as new services are set up.*
+*This section is updated step by step as each module is implemented.*
