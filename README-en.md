@@ -55,8 +55,8 @@ To optimize performance and resource allocation, storage is segmented into three
   <table border="0">
     <tr>
       <td align="center" width="50%" style="padding: 10px;">
-        <img src="images/samsung-990-evo-plus.png" width="210" alt="Samsung 990 EVO Plus NVMe SSD"><br/>
-        <sub><b>Samsung 990 EVO Plus NVMe SSD</b><br/>Tier 2 Warm Storage (VM Backups, Docker Volumes)</sub>
+        <img src="images/samsung-990-evo-plus.png" width="210" alt="Samsung 990 EVO Plus 1TB NVMe SSD"><br/>
+        <sub><b>Samsung 990 EVO Plus 1 TB NVMe SSD</b><br/>Tier 2 Warm Storage (VM Backups, Docker Volumes)</sub>
       </td>
       <td align="center" width="50%" style="padding: 10px;">
         <img src="images/nvme-enclosure-10gbps.png" width="190" alt="10Gbps USB-C NVMe Enclosure"><br/>
