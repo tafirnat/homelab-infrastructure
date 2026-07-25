@@ -4,54 +4,58 @@ This is my personal Home Lab environment, built out of pure passion for IT infra
 
 ## 🎯 Project Goal
 
-The primary goal of this repository is to simulate a complete, secure, and segmented enterprise environment. All decisions are based on Enterprise Best Practices, including network separation (VLANs), storage tiering, and secure remote access strategies.
+The primary goal of this repository is to simulate a complete, secure, and segmented enterprise environment. All decisions are based on Enterprise Best Practices, including network separation (VLANs), storage tiering, German permission standards (IGDLA), and secure remote access strategies.
 
 ## 🏗️ Hardware & Virtualization
 
-- **Hypervisor:** Geekom A8 Mini PC (Proxmox VE, 32GB DDR5 RAM)
+- **Hypervisor:** Geekom A8 Mini PC (AMD Ryzen 8000 Series, Proxmox VE, 32GB DDR5 RAM, Radeon 780M iGPU)
 - **Networking Hardware:** 
-  - MikroTik RB5009 (Router / Firewall / Inter-VLAN Routing)
+  - MikroTik RB5009UG+S+IN (Router / Firewall / Inter-VLAN Routing)
   - TP-Link SG2008P (L2+ Managed PoE+ Switch)
   - TP-Link EAP610 (Wi-Fi 6 Access Point with Multi-SSID)
 
-### 💾 Storage Strategy (3-Tier)
-To optimize performance and cost, storage is segmented into three tiers:
-- **Tier 1 (Hot):** 1 TB NVMe M.2 SSD (For Proxmox OS and active VM/LXC root disks)
-- **Tier 2 (Warm):** 1 TB NVMe via 10 Gbps USB-C (For VM backups, Docker volumes)
-- **Tier 3 (Cold):** 128 GB MicroSD (For log archives, ISO files, templates)
+### 💾 Storage Strategy (3-Tiering)
+To optimize performance and resource allocation, storage is segmented into three tiers:
+- **Tier 1 (Hot - `local-lvm`):** 1 TB NVMe M.2 SSD (For Proxmox OS and active VM/LXC root disks)
+- **Tier 2 (Warm - `usb-ssd`):** 1 TB NVMe via 10 Gbps USB-C (For VM backups, Docker volumes, large VM disks)
+- **Tier 3 (Cold - `sd-storage`):** 128 GB MicroSD (A2/V30) (For log archives, ISO files, templates, test disks)
 
 ## 🕸️ Network & VLAN Design
 
-The environment operates behind a **Double NAT**, meaning traditional port forwarding is not possible. All services are isolated via VLANs:
+The environment operates behind a **Double NAT**, meaning traditional port forwarding is not possible. All services are isolated via strict VLAN ACLs:
 
 | VLAN | Name | Subnet | Tag | Purpose |
 |---|---|---|---|---|
-| **10** | Mgmt | `10.0.10.0/24` | Mgmt | Management Network (Proxmox, Router, Switches) |
+| **10** | Mgmt | `10.0.10.0/24` | Mgmt | Management Network (Proxmox, Router, Switches, Pi-hole) |
 | **21** | WinServer | `10.0.21.0/24` | WinS | Active Directory & Windows Server Lab |
-| **22** | LinuxLab | `10.0.22.0/24` | LinS | Linux VMs/LXCs, Docker & AI Services |
-| **30** | Haus | `10.0.30.0/24` | HLab | Primary Home Network |
+| **22** | LinuxLab | `10.0.22.0/24` | LinS | Linux VMs/LXCs, Docker, AI Gateway & Proxy Services |
+| **30** | Haus | `10.0.30.0/24` | HLab | Primary Home Network (Can access AI Gateway) |
 | **40** | IoT | `10.0.40.0/24` | IoT | Isolated Smart Home & IoT Devices |
 | **60** | Printer | `10.0.60.0/24` | Printer | Network Printers |
 | **99** | Kali | `10.0.99.0/24` | KLan | Penetration Testing & Security Lab |
 
-## 🧠 Architectural Decisions
+## 🧠 Architectural Decisions & Best Practices
 
-- **LXC vs. Docker (Hybrid Approach):** Infrastructure services (e.g., Tailscale, DNS) run as standalone LXCs for maximum resilience. Application services run in Docker (inside an LXC) for easy deployment.
-- **Tailscale Isolation:** The VPN gateway (Tailscale) is installed in a dedicated, isolated LXC. If another service crashes, remote access to the lab remains intact.
-- **DNS Standard:** The environment uses **`.mylab`** as the local Top-Level Domain (TLD) to completely avoid conflicts with mDNS (`.local`).
-- **No Services on the Proxmox Host:** The Proxmox host is strictly used as a hypervisor. No packages are installed directly on the host to ensure easy recovery.
+- **LXC vs. Docker (Hybrid Approach):** Infrastructure services (e.g., Tailscale, Pi-hole) run as standalone LXCs for maximum resilience. Application services (NPM, OmniRoute) run in Docker inside an LXC.
+- **Tailscale Remote Access:** The VPN gateway is installed in a dedicated, isolated LXC. If another subsystem crashes, administrative remote access to the lab remains intact.
+- **Windows Server IGDLA Principle:** Access permissions in the Windows Server Lab (VLAN 21) follow the German industry standard **IGDLA** (Identities, Global groups, Domain Local groups, Access).
+- **Local AI & GPU Passthrough:** The local LLM (Qwen 2.5 7B) runs in an unprivileged LXC with hardware acceleration via AMD Radeon 780M iGPU (`/dev/dri`).
+- **Portfolio AI Integration:** Local AI is integrated with **Cloudflare Tunnel & Turnstile** — serving free, secure AI chatbot responses on my portfolio site without opening any ports.
+- **DNS Standard:** The environment uses **`.mylab`** as the local Top-Level Domain (TLD).
 
-## <ctrl42> Roadmap & Planned Services
+## 🗺️ Roadmap & Planned Services
 
 This ecosystem is continuously expanding. Current status of infrastructure services:
 
-- [x] **Proxmox Hypervisor & VLAN Setup** (Completed)
-- [ ] **Pi-hole (DNS & Adblocking)** (Planned)
-- [ ] **Windows Server Active Directory** (Planned, VLAN 21)
-- [ ] **Nginx Proxy Manager** (Planned)
-- [ ] **Tailscale VPN (Subnet Router)** (Planned)
-- [ ] **Local LLM (Qwen 2.5 7B AI)** (Planned, with GPU Passthrough)
+- [x] **Proxmox Hypervisor & Storage Tiering** (Completed)
+- [x] **Windows Server 2025 DC & Windows 11 Client** (Completed, VLAN 21)
+- [ ] **Pi-hole (DNS & Adblocking)** (Planned - Step 1)
+- [ ] **Nginx Proxy Manager (Reverse Proxy & SSL)** (Planned - Step 2)
+- [ ] **Tailscale Subnet Router (Zero-Trust VPN)** (Planned - Step 3)
+- [ ] **OmniRoute AI Gateway (Groq / NVIDIA NIM / Local LLM)** (Planned - Step 4)
+- [ ] **Uptime Kuma & Status Badges** (Planned)
+- [ ] **Vaultwarden & Automated Encrypted Backup** (Planned)
 - [ ] **Kali Linux Pentesting Lab** (Planned, VLAN 99)
 
 ---
-*This section is continuously updated by my autonomous workflow scripts whenever a new service is deployed.*
+*This section is automatically updated whenever new modules are implemented.*
