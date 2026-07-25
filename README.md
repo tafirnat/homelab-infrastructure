@@ -93,16 +93,6 @@ Das Netzwerk läuft hinter einem **Double NAT**, weshalb keine klassischen Portf
 | **60** | Printer | `10.0.60.0/24` | Printer | Netzwerkdrucker |
 | **99** | Kali | `10.0.99.0/24` | KLan | Penetration Testing & Sicherheits-Lab |
 
-## 🧠 Praktische Entschlüsse & Ansätze
-
-- **Bare-Metal-Hypervisor (Typ-1):** Proxmox VE ist als dedizierter Typ-1-Hypervisor direkt auf dem Mini-PC (Bare-Metal) installiert. Der Host dient als sauberes Fundament ausschließlich zur Verwaltung virtueller Ressourcen — Anwendungen werden nie direkt auf dem Proxmox-Host installiert.
-- **LXC vs. Docker (Kombination):** Infrastrukturdienste (wie Tailscale, Pi-hole) laufen als eigene LXC-Kontainer für gute Stabilität. Weitere Anwendungen laufen in Docker innerhalb eines LXC.
-- **Tailscale Fernzugriff:** Der VPN-Zugang ist in einem eigenen LXC installiert. So bleibt der Zugriff auf das Netzwerk auch dann erhalten, wenn andere Dienste getestet werden.
-- **Windows Server Konzept (Geplant):** Im Windows Lab (VLAN 21) sollen Berechtigungen nach dem FISI-Standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) konfiguriert werden, sobald die AD-Einrichtung erfolgt.
-- **Lokale KI & GPU-Passthrough (Geplant):** Durch die direkte Durchreichung der Grafikkarte (iGPU-Passthrough auf Proxmox) soll ein open-source Sprachmodell (aktuell Qwen 2.5 7B) in einem eigenen LXC-Kontainer mit maximaler Leistung und Effizienz betrieben werden.
-- **Webseiten-KI Entegrasyonu:** Einbindung des lokalen Modells über **Cloudflare Tunnel & Turnstile** — ermöglicht sichere KI-Antworten auf meiner Webseite, ohne Ports am Router zu öffnen.
-- **DNS-Standard:** Es wird **`.mylab`** als lokale Top-Level-Domain genutzt.
-
 ## 🗺️ Roadmap & Schritt-für-Schritt Verlauf
 
 Das Home Lab wird schrittweise nach einem klaren Plan aufgebaut:
@@ -117,6 +107,16 @@ Das Home Lab wird schrittweise nach einem klaren Plan aufgebaut:
 - [ ] **Uptime Kuma & Statusübersicht**
 - [ ] **Vaultwarden & Automatisches Backup**
 - [ ] **Kali Linux Pentesting Lab** (VLAN 99)
+
+## 🧠 Praktische Entschlüsse & Ansätze
+
+- **Bare-Metal-Hypervisor (Typ-1):** Proxmox VE ist als dedizierter Typ-1-Hypervisor direkt auf dem Mini-PC (Bare-Metal) installiert. Der Host dient als sauberes Fundament ausschließlich zur Verwaltung virtueller Ressourcen — Anwendungen werden nie direkt auf dem Proxmox-Host installiert.
+- **LXC vs. Docker (Kombination):** Infrastrukturdienste (wie Tailscale, Pi-hole) laufen als eigene LXC-Kontainer für gute Stabilität. Weitere Anwendungen laufen in Docker innerhalb eines LXC.
+- **Tailscale Fernzugriff:** Der VPN-Zugang ist in einem eigenen LXC installiert. So bleibt der Zugriff auf das Netzwerk auch dann erhalten, wenn andere Dienste getestet werden.
+- **Windows Server Konzept (Geplant):** Im Windows Lab (VLAN 21) sollen Berechtigungen nach dem FISI-Standard **IGDLA** (Identities, Global groups, Domain Local groups, Access) konfiguriert werden, sobald die AD-Einrichtung erfolgt.
+- **Lokale KI & GPU-Passthrough (Geplant):** Durch die direkte Durchreichung der Grafikkarte (iGPU-Passthrough auf Proxmox) soll ein open-source Sprachmodell (aktuell Qwen 2.5 7B) in einem eigenen LXC-Kontainer mit maximaler Leistung und Effizienz betrieben werden.
+- **Webseiten-KI Entegrasyonu:** Einbindung des lokalen Modells über **Cloudflare Tunnel & Turnstile** — ermöglicht sichere KI-Antworten auf meiner Webseite, ohne Ports am Router zu öffnen.
+- **DNS-Standard:** Es wird **`.mylab`** als lokale Top-Level-Domain genutzt.
 
 ---
 *Dieser Bereich wird fortlaufend aktualisiert, sobald ein Schritt abgeschlossen ist.*
