@@ -24,13 +24,15 @@ Um die Leistung zu optimieren, ist der Speicher in drei Schichten (Tiers) untert
 
 Die Umgebung läuft hinter einem **Double NAT**, weshalb keine klassischen Portfreigaben (Port Forwarding) möglich sind. Alle Dienste sind durch VLANs isoliert:
 
-| VLAN | Name | Verwendungszweck |
-|---|---|---|
-| **10** | Mgmt | Management-Netzwerk (Proxmox, Router, Switche) |
-| **21** | WinServer | Active Directory & Windows Server Lab |
-| **22** | LinuxLab | Linux VMs/LXCs, Docker & AI Dienste |
-| **30** | IoTs | Isolierte IoT-Geräte |
-| **50** | Gast | Gäste-WLAN (Nur Internetzugang) |
+| VLAN | Name | Subnet | Tag | Verwendungszweck |
+|---|---|---|---|---|
+| **10** | Mgmt | `10.0.10.0/24` | Mgmt | Management-Netzwerk (Proxmox, Router, Switche) |
+| **21** | WinServer | `10.0.21.0/24` | WinS | Active Directory & Windows Server Lab |
+| **22** | LinuxLab | `10.0.22.0/24` | LinS | Linux VMs/LXCs, Docker & AI Dienste |
+| **30** | Haus | `10.0.30.0/24` | HLab | Haupt-Heimnetzwerk |
+| **40** | IoT | `10.0.40.0/24` | IoT | Isolierte Smart-Home & IoT-Geräte |
+| **60** | Printer | `10.0.60.0/24` | Printer | Netzwerkdrucker |
+| **99** | Kali | `10.0.99.0/24` | KLan | Penetration Testing & Sicherheits-Lab |
 
 ## 🧠 Architektur-Entscheidungen
 
@@ -49,6 +51,7 @@ Dieses Ökosystem wird kontinuierlich erweitert. Der aktuelle Status der Infrast
 - [ ] **Nginx Proxy Manager** (Geplant)
 - [ ] **Tailscale VPN (Subnet Router)** (Geplant)
 - [ ] **Local LLM (Qwen 2.5 7B AI)** (Geplant, mit GPU-Passthrough)
+- [ ] **Kali Linux Pentesting Lab** (Geplant, VLAN 99)
 
 ---
 *Dieser Bereich wird durch meine autonomen Workflow-Skripte laufend aktualisiert, sobald ein neuer Dienst installiert wird.*

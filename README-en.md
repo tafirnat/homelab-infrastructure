@@ -24,13 +24,15 @@ To optimize performance and cost, storage is segmented into three tiers:
 
 The environment operates behind a **Double NAT**, meaning traditional port forwarding is not possible. All services are isolated via VLANs:
 
-| VLAN | Name | Purpose |
-|---|---|---|
-| **10** | Mgmt | Management Network (Proxmox, Router, Switches) |
-| **21** | WinServer | Active Directory & Windows Server Lab |
-| **22** | LinuxLab | Linux VMs/LXCs, Docker & AI Services |
-| **30** | IoTs | Isolated IoT Devices |
-| **50** | Gast | Guest Wi-Fi (Internet access only) |
+| VLAN | Name | Subnet | Tag | Purpose |
+|---|---|---|---|---|
+| **10** | Mgmt | `10.0.10.0/24` | Mgmt | Management Network (Proxmox, Router, Switches) |
+| **21** | WinServer | `10.0.21.0/24` | WinS | Active Directory & Windows Server Lab |
+| **22** | LinuxLab | `10.0.22.0/24` | LinS | Linux VMs/LXCs, Docker & AI Services |
+| **30** | Haus | `10.0.30.0/24` | HLab | Primary Home Network |
+| **40** | IoT | `10.0.40.0/24` | IoT | Isolated Smart Home & IoT Devices |
+| **60** | Printer | `10.0.60.0/24` | Printer | Network Printers |
+| **99** | Kali | `10.0.99.0/24` | KLan | Penetration Testing & Security Lab |
 
 ## 🧠 Architectural Decisions
 
@@ -39,7 +41,7 @@ The environment operates behind a **Double NAT**, meaning traditional port forwa
 - **DNS Standard:** The environment uses **`.mylab`** as the local Top-Level Domain (TLD) to completely avoid conflicts with mDNS (`.local`).
 - **No Services on the Proxmox Host:** The Proxmox host is strictly used as a hypervisor. No packages are installed directly on the host to ensure easy recovery.
 
-## 🗺️ Roadmap & Planned Services
+## <ctrl42> Roadmap & Planned Services
 
 This ecosystem is continuously expanding. Current status of infrastructure services:
 
@@ -49,6 +51,7 @@ This ecosystem is continuously expanding. Current status of infrastructure servi
 - [ ] **Nginx Proxy Manager** (Planned)
 - [ ] **Tailscale VPN (Subnet Router)** (Planned)
 - [ ] **Local LLM (Qwen 2.5 7B AI)** (Planned, with GPU Passthrough)
+- [ ] **Kali Linux Pentesting Lab** (Planned, VLAN 99)
 
 ---
 *This section is continuously updated by my autonomous workflow scripts whenever a new service is deployed.*
