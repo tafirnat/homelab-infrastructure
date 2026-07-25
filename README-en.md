@@ -51,6 +51,34 @@ To optimize performance and resource allocation, storage is segmented into three
 - **Tier 2 (Warm - `usb-ssd`):** 1 TB NVMe via 10 Gbps USB-C (For VM backups, Docker volumes, large VM disks)
 - **Tier 3 (Cold - `sd-storage`):** 128 GB MicroSD (A2/V30) (For log archives, ISO files, templates, test disks)
 
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" width="50%" style="padding: 10px;">
+        <img src="images/samsung-990-evo-plus.png" width="210" alt="Samsung 990 EVO Plus NVMe SSD"><br/>
+        <sub><b>Samsung 990 EVO Plus NVMe SSD</b><br/>Tier 2 Warm Storage (VM Backups, Docker Volumes)</sub>
+      </td>
+      <td align="center" width="50%" style="padding: 10px;">
+        <img src="images/nvme-enclosure-10gbps.png" width="190" alt="10Gbps USB-C NVMe Enclosure"><br/>
+        <sub><b>USB-C 10 Gbps NVMe Enclosure</b><br/>High-Speed External Interface (Mount Point)</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
+### 🛡️ Security & Wireless Audit Hardware (VLAN 99 - Kali)
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" style="padding: 10px;">
+        <img src="images/alfa-awus036ach-wifi-adapter.png" width="220" alt="Alfa AWUS036ACH Dual-Band Wi-Fi Adapter"><br/>
+        <sub><b>Alfa AWUS036ACH Dual-Band Wi-Fi Adapter</b><br/>Packet Analysis & Wireless Security Audits (Cisco Ethical Hacker Lab)</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## 🕸️ Network & VLAN Design
 
 The environment operates behind a **Double NAT**, meaning traditional port forwarding is not possible. All services are isolated via strict VLAN ACLs:

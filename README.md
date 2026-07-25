@@ -4,7 +4,7 @@ Dies ist meine persönliche Home-Lab-Umgebung, die aus purer Leidenschaft für I
 
 ## 🎯 Projektziel & Motivation
 
-Das Hauptziel dieses Repositories ist es, praktische Erfahrungen im Bereich der Netzwerk- und Systemadministration zu sammeln und moderne Technologien hautnah zu entdecken. Anstatt auf reiner Theorie aufzubauen, dient dieses Home Lab als persönliches Testfeld, um praxisnahe Konzepte — wie VLAN-Segmentierung, 3-Tier Storage und strukturierte Rechtevergabe (z. B. IGDLA) — in einer kompakten Umgebung auszuprobieren und tiefgehend zu verstehen.
+Das Hauptziel dieses Repositories ist es, praktische Erfahrungen im Bereich der Netzwerk- und Systemadministration zu sammeln und moderne Technologien hautnah zu entdecken. Anstatt auf reiner Theorie aufzubauen, dient dieses Home Lab als persönliches Testfeld, um praxisnahe Konzepte — wie VLAN-Segmentierung, 3-Tier Storage und strukturierte Rechtevergabe (z.B. IGDLA) — in einer kompakten Umgebung auszuprobieren und tiefgehend zu verstehen.
 
 ## 🏗️ Hardware & Virtualisierung
 
@@ -50,6 +50,34 @@ Um die Leistung zu optimieren und Ressourcen effizient zu nutzen, ist der Speich
 - **Tier 1 (Hot - `local-lvm`):** 1 TB NVMe M.2 SSD (Für Proxmox OS und aktive VM/LXC Root-Disks)
 - **Tier 2 (Warm - `usb-ssd`):** 1 TB NVMe über 10 Gbps USB-C (Für VM-Backups, Docker-Volumes, große VM-Disks)
 - **Tier 3 (Cold - `sd-storage`):** 128 GB MicroSD (A2/V30) (Für Log-Archive, ISO-Dateien, Templates, Test-Disks)
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" width="50%" style="padding: 10px;">
+        <img src="images/samsung-990-evo-plus.png" width="210" alt="Samsung 990 EVO Plus NVMe SSD"><br/>
+        <sub><b>Samsung 990 EVO Plus NVMe SSD</b><br/>Tier 2 Warm Storage (VM Backups, Docker Volumes)</sub>
+      </td>
+      <td align="center" width="50%" style="padding: 10px;">
+        <img src="images/nvme-enclosure-10gbps.png" width="190" alt="10Gbps USB-C NVMe Enclosure"><br/>
+        <sub><b>USB-C 10 Gbps NVMe Enclosure</b><br/>High-Speed External Interface (Mount Point)</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
+### 🛡️ Security & Wireless Audit Hardware (VLAN 99 - Kali)
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" style="padding: 10px;">
+        <img src="images/alfa-awus036ach-wifi-adapter.png" width="220" alt="Alfa AWUS036ACH Dual-Band Wi-Fi Adapter"><br/>
+        <sub><b>Alfa AWUS036ACH Dual-Band Wi-Fi Adapter</b><br/>Paket-Analyse & WLAN-Sicherheitsprüfungen (Cisco Ethical Hacker Lab)</sub>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## 🕸️ Netzwerk & VLAN Design
 
