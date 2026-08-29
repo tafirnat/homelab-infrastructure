@@ -1,12 +1,12 @@
-# 🏠 Personal Home Lab — System Architecture
+# Personal Home Lab — System Architecture
 
 Dies ist meine persönliche Home-Lab-Umgebung, die aus Interesse an IT-Infrastruktur und Systemtechnik entstanden ist. Parallel zu meiner Ausbildung zum Fachinformatiker für Systemintegration (FISI) habe ich diese Testumgebung aufgebaut, um neue Technologien auszuprobieren und praktische Erfahrungen mit Virtualisierung, Netzwerken und IT-Sicherheit zu sammeln.
 
-## 🎯 Projektziel & Motivation
+## Projektziel & Motivation
 
 Das Hauptziel dieses Repositories ist es, praktische Erfahrungen in der Netzwerk- und Systemadministration zu sammeln und moderne Werkzeuge kennenzulernen. Anstatt nur Theorie zu lernen, dient dieses Home Lab als persönliches Testfeld, um bewährte Konzepte aus der IT-Praxis — wie VLAN-Segmentierung, 3-Tier Storage und strukturierte Rechtevergabe (z.B. IGDLA) — in einer überschaubaren Umgebung Schritt für Schritt auszuprobieren.
 
-## 🏗️ Hardware & Virtualisierung
+## Hardware & Virtualisierung
 
 - **Hypervisor:** Geekom A8 Mini PC (AMD Ryzen 8000 Series, Proxmox VE, 32GB DDR5 RAM, Radeon 780M iGPU)
 - **Netzwerk-Hardware:** 
@@ -14,7 +14,7 @@ Das Hauptziel dieses Repositories ist es, praktische Erfahrungen in der Netzwerk
   - TP-Link SG2008P (L2+ Managed PoE+ Switch)
   - TP-Link EAP610 (Wi-Fi 6 Access Point mit Multi-SSID)
 
-### 📷 Hardware Setup Galerie
+### Hardware Setup Galerie
 
 <div align="center">
   <table border="0">
@@ -45,7 +45,7 @@ Das Hauptziel dieses Repositories ist es, praktische Erfahrungen in der Netzwerk
   </table>
 </div>
 
-### 💾 Storage-Strategie (3-Tiering)
+### Storage-Strategie (3-Tiering)
 Um die Leistung zu optimieren und Ressourcen sinnvoll einzuteilen, ist der Speicher in drei Schichten unterteilt:
 - **Tier 1 (Hot - `local-lvm`):** 1 TB NVMe M.2 SSD (Für Proxmox OS und aktive VM/LXC Root-Disks)
 - **Tier 2 (Warm - `usb-ssd`):** 1 TB NVMe über 10 Gbps USB-C (Für VM-Backups, Docker-Volumes, große VM-Disks)
@@ -66,7 +66,7 @@ Um die Leistung zu optimieren und Ressourcen sinnvoll einzuteilen, ist der Speic
   </table>
 </div>
 
-### 🛡️ Test-Hardware für WLAN & Sicherheit (VLAN 99 - Kali)
+### Test-Hardware für WLAN & Sicherheit (VLAN 99 - Kali)
 
 <div align="center">
   <table border="0">
@@ -79,7 +79,7 @@ Um die Leistung zu optimieren und Ressourcen sinnvoll einzuteilen, ist der Speic
   </table>
 </div>
 
-## 🕸️ Netzwerk & VLAN Design
+## Netzwerk & VLAN Design
 
 Das Netzwerk läuft hinter einem **Double NAT**, weshalb keine klassischen Portfreigaben möglich sind. Die einzelnen Bereiche sind durch passende VLAN-Regeln getrennt:
 
@@ -108,7 +108,7 @@ Das Home Lab wird schrittweise nach einem klaren Plan aufgebaut:
 - [ ] **Vaultwarden & Automatisches Backup**
 - [ ] **Kali Linux Pentesting Lab** (VLAN 99)
 
-## 🧠 Praktische Entschlüsse & Ansätze
+## Praktische Entschlüsse & Ansätze
 
 - **Bare-Metal-Hypervisor (Typ-1):** Proxmox VE ist als dedizierter Typ-1-Hypervisor direkt auf dem Mini-PC (Bare-Metal) installiert. Der Host dient als sauberes Fundament ausschließlich zur Verwaltung virtueller Ressourcen — Anwendungen werden nie direkt auf dem Proxmox-Host installiert.
 - **LXC vs. Docker (Kombination):** Infrastrukturdienste (wie Tailscale, Pi-hole) laufen als eigene LXC-Kontainer für gute Stabilität. Weitere Anwendungen laufen in Docker innerhalb eines LXC.
