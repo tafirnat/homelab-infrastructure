@@ -93,7 +93,7 @@ Das Netzwerk läuft hinter einem **Double NAT**, weshalb keine klassischen Portf
 | **60** | Printer | `10.0.60.0/24` | Printer | Netzwerkdrucker |
 | **99** | Kali | `10.0.99.0/24` | KLan | Penetration Testing & Sicherheits-Lab |
 
-## 🗺️ Roadmap & Schritt-für-Schritt Verlauf
+## Roadmap & Schritt-für-Schritt Verlauf
 
 Das Home Lab wird schrittweise nach einem klaren Plan aufgebaut:
 
